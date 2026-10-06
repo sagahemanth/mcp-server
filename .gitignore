@@ -1,0 +1,10 @@
+.env
+.env.ica
+.env.*
+!.env.example
+!.env.ica.example
+OPENAI_API_KEY.txt
+.venv/
+__pycache__/
+*.py[cod]
+/data/
