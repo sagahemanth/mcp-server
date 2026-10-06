@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#091522" />
+    <title>Airline Care | Resolution Desk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="/" aria-label="Airline Care home">
+          <span class="brand-mark">a</span>
+          <span class="brand-name">airline<span>care</span></span>
+        </a>
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a class="nav-item active" href="#"><span class="nav-icon">▦</span> Resolution desk</a>
+          <a class="nav-item" href="#cases"><span class="nav-icon">◷</span> Track a case</a>
+          <a class="nav-item" href="/data-log"><span class="nav-icon">▤</span> Saved data</a>
+          <a class="nav-item" href="#audit" id="audit-nav"><span class="nav-icon">⌁</span> Action audit</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="live-pill"><span></span> ALL SYSTEMS OPERATIONAL</div>
+          <button class="user-card profile-button" id="profile-button" type="button" aria-label="Set demo profile">
+            <div class="avatar">AC</div>
+            <div><strong id="profile-name">Demo profile</strong><small id="profile-email">Set your name and email</small></div>
+            <span class="more">Edit</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>Workspace</span><b>/</b><strong>Resolution desk</strong></div>
+          <div class="top-actions"><span class="environment"><i></i> TRAINING SIMULATION</span><span class="model-badge" id="model-badge">Checking model…</span><button class="help-button" id="help-button" aria-label="Show demo information">?</button></div>
+        </header>
+        <div class="content">
+          <section class="welcome">
+            <div>
+              <div class="eyebrow"><span class="sparkle">✦</span> AIRLINE SERVICE OPERATIONS</div>
+              <h1>Good service takes you places.</h1>
+              <p>Understand the issue. Check the policy. Make it right.</p>
+            </div>
+            <div class="flight-art" aria-hidden="true">
+              <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+              <div class="plane">✈</div><div class="art-dot dot-one"></div><div class="art-dot dot-two"></div>
+            </div>
+          </section>
+
+          <section class="stat-grid" aria-label="Service overview">
+            <article class="stat-card"><div class="stat-top"><span>AGENT WORKFLOW</span><span class="stat-icon violet">✦</span></div><strong>6 <small>agents</small></strong><p>With verification and confirmation gates</p><div class="agent-mini"><span>IN</span><span>ID</span><span>CT</span><span>PL</span><span>RS</span><span>ES</span><em>Understand → Verify → Investigate → Confirm</em></div></article>
+            <article class="stat-card"><div class="stat-top"><span>CONNECTED SYSTEMS</span><span class="stat-icon blue">⌘</span></div><strong>5 <small>systems</small></strong><p>Scoped access through MCP tools</p><div class="system-tags"><span>CRM</span><span>PSS</span><span>PAYMENTS</span><span>LOYALTY</span><span>CASES</span></div></article>
+            <article class="stat-card"><div class="stat-top"><span>SAFE RESOLUTION</span><span class="stat-icon green">↗</span></div><strong>3 <small>gates</small></strong><p>Verify identity. Check policy. Confirm action.</p><div class="status-line"><span class="pulse"></span> No action before explicit confirmation</div></article>
+          </section>
+
+          <section class="work-grid">
+            <article class="panel composer">
+              <div class="panel-heading"><div><span class="section-kicker">NEW CUSTOMER REQUEST</span><h2>How can we help?</h2></div><span class="secure-label"><span>⌑</span> Demo case intake</span></div>
+              <form id="case-form">
+                <label class="field-label" for="message">CUSTOMER MESSAGE</label>
+                <div class="conversation-log hidden" id="conversation-log" aria-live="polite"></div>
+                <textarea id="message" minlength="4" maxlength="4000" placeholder="Tell us what happened and how we can help…" required></textarea>
+                <div class="textarea-footer"><span>Try a sample request below</span><span id="char-count">0 / 4000</span></div>
+                <div class="sample-row">
+                  <button type="button" class="sample-chip" data-message="My flight was cancelled by the airline and I need a full refund. Booking PNR482">✦ Airline cancellation refund</button>
+                  <button type="button" class="sample-chip" data-message="My flight is delayed by over four hours. Can I get lounge access? Booking PNR739">◷ Long delay lounge access</button>
+                  <button type="button" class="sample-chip" data-message="My checked bag has not arrived. Please help me trace it. Booking PNR615">▧ Missing baggage</button>
+                  <button type="button" class="sample-chip" data-message="Please retrieve my boarding pass. Booking PNR482">▤ Boarding pass</button>
+                  <button type="button" class="sample-chip" data-message="What terminal and gate is my flight using? Booking PNR739">⌖ Terminal &amp; gate</button>
+                  <button type="button" class="sample-chip" data-message="Please check my refund status. Booking PNR482">◷ Refund status</button>
+                </div>
+                <button class="text-button generate-ticket" id="generate-ticket" type="button">Generate a random demo ticket <b>↻</b></button>
+                <div class="form-controls">
+                  <label class="select-wrap"><span>CHANNEL</span><select id="channel"><option value="web_chat">Web chat</option><option value="email">Email</option><option value="voice">Voice</option><option value="mobile">Mobile app</option></select><b>⌄</b></label>
+                  <label class="booking-input"><span>PNR OR FLIGHT ID <small>OPTIONAL</small></span><input id="booking-reference" type="text" placeholder="e.g. PNR482 or AR123" maxlength="20" /></label>
+                  <button class="submit-button" id="submit-button" type="submit"><span>Send to agent</span><b>→</b></button>
+                </div>
+              </form>
+              <section class="demo-ticket hidden" id="demo-ticket" aria-live="polite"></section>
+              <div class="trust-note"><span>◈</span> A random ticket creates a regular mock booking only. Choose a sample issue or describe what help you need. Identity checks and service actions are simulated.</div>
+            </article>
+
+            <aside class="panel agents-panel">
+              <div class="panel-heading"><div><span class="section-kicker">AUTONOMOUS WORKFLOW</span><h2>Agent team</h2></div><span class="workflow-state" id="workflow-state"><i></i> Ready</span></div>
+              <div class="model-info"><span class="model-info-icon">AI</span><div><small>AGENT MODEL ASSIGNMENTS</small><strong id="model-name">Checking configuration…</strong><small class="model-setup hidden" id="model-setup-note"></small></div><span class="model-pulse hidden" id="model-pulse"></span></div>
+              <div class="agent-list">
+                <div class="agent-row" data-agent="Customer Intent Agent" data-agent-id="intent"><div class="agent-symbol violet-bg">✳</div><div><strong>Intent agent</strong><small>Understands the request</small><small class="agent-assignment" data-agent-model>Checking…</small></div><span class="agent-check">·</span></div>
+                <div class="agent-row" data-agent="Identity Verification Agent" data-agent-id="identity"><div class="agent-symbol blue-bg">⌑</div><div><strong>Identity agent</strong><small>Verifies before accessing PSS data</small><small class="agent-assignment" data-agent-model>Checking…</small></div><span class="agent-check">·</span></div>
+                <div class="agent-row" data-agent="Customer Context Agent" data-agent-id="context"><div class="agent-symbol blue-bg">◉</div><div><strong>Context agent</strong><small>Retrieves verified passenger details</small><small class="agent-assignment" data-agent-model>Checking…</small></div><span class="agent-check">·</span></div>
+                <div class="agent-row" data-agent="Policy Decision Agent" data-agent-id="policy"><div class="agent-symbol amber-bg">◇</div><div><strong>Policy agent</strong><small>Explains rule-based eligibility</small><small class="agent-assignment" data-agent-model>Checking…</small></div><span class="agent-check">·</span></div>
+                <div class="agent-row" data-agent="Resolution Agent" data-agent-id="resolution"><div class="agent-symbol green-bg">↗</div><div><strong>Resolution agent</strong><small>Prepares confirmed tool actions</small><small class="agent-assignment" data-agent-model>Checking…</small></div><span class="agent-check">·</span></div>
+                <div class="agent-row" data-agent="Escalation Agent" data-agent-id="escalation"><div class="agent-symbol rose-bg">⇥</div><div><strong>Escalation agent</strong><small>Summarizes specialist handoffs</small><small class="agent-assignment" data-agent-model>Checking…</small></div><span class="agent-check">·</span></div>
+              </div>
+              <div class="activity-card hidden" id="agent-activity"><span class="spinner activity-spinner"></span><div><strong id="activity-agent">Agent working</strong><small id="activity-message">Preparing…</small></div></div>
+              <div class="mcp-note"><span class="mcp-logo">M</span><div><strong>Powered by MCP</strong><small>Model-selected read tools · gated actions · audited calls</small></div><span class="lock-icon">⌑</span></div>
+            </aside>
+          </section>
+
+          <section class="result-panel panel hidden" id="result-panel" aria-live="polite"></section>
+          <section class="panel cases-panel" id="cases">
+            <div class="panel-heading"><div><span class="section-kicker">PRIVATE CASE LOOKUP</span><h2>Track a support case</h2></div></div>
+            <form class="track-case-form" id="track-case-form">
+              <label for="track-case-reference">CASE ID FROM YOUR SERVICE RESPONSE</label>
+              <input id="track-case-reference" type="text" placeholder="Enter your case ID, e.g. CS-A1B2C3D4E5F60718" maxlength="19" pattern="CS-[A-Fa-f0-9]{16}" required />
+              <button class="text-button" type="submit">Check status <b>→</b></button>
+            </form>
+            <p class="tracking-help">Cases are not listed publicly. Your case ID provides lookup access in this demo; production needs authenticated ownership checks. It tracks service status—not live flight location.</p>
+            <div class="tracked-case hidden" id="tracked-case" aria-live="polite"></div>
+          </section>
+          <section class="panel audit-panel hidden" id="audit">
+            <div class="panel-heading"><div><span class="section-kicker">TRANSPARENCY &amp; CONTROL</span><h2>Action audit <span class="case-total" id="audit-total">0</span></h2></div><span class="audit-caption">Every agent decision and MCP tool call</span></div>
+            <div class="audit-list" id="audit-list"><div class="empty-audit">Audit entries appear here after a case is processed.</div></div>
+          </section>
+          <footer><span>Airline Care <b>·</b> Service, thoughtfully resolved.</span><span>DEMO ONLY — Actions use mock airline data and do not affect real bookings or payments.</span></footer>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <dialog id="profile-dialog"><button class="dialog-close" id="profile-close" aria-label="Close">×</button><div class="dialog-icon">◉</div><h2>Your demo profile</h2><p>This browser-only profile is used to personalize generated mock tickets and their surname check. It is not a real account, does not use a password, and is not secure authentication.</p><form id="profile-form" class="profile-form"><label>First name<input id="profile-first-name" required maxlength="60" autocomplete="given-name" /></label><label>Last name<input id="profile-last-name" required maxlength="60" autocomplete="family-name" /></label><label>Email<input id="profile-email-input" type="email" required maxlength="254" autocomplete="email" /></label><button class="submit-button" type="submit"><span>Save demo profile</span><b>✓</b></button><button class="text-button" id="profile-skip" type="button">Continue without a profile</button></form></dialog>
+    <dialog id="info-dialog"><button class="dialog-close" id="dialog-close" aria-label="Close">×</button><div class="dialog-icon">✦</div><h2>Airline Care training demo</h2><p>All passenger, booking, policy, payment, loyalty, and case-management records are simulated. Actions do not affect real airline systems.</p><p>Workflow: classify the request → collect a booking reference → verify the passenger’s last name → retrieve context → check the versioned policy → present an option → wait for explicit confirmation → submit and report the returned transaction status.</p><p><strong>Sample booking surnames:</strong> PNR482 — Rivera · PNR739 — Morgan · PNR615 — Patel · PNR901 — Kim. If you generate a random ticket, the app uses the last name in your browser-only demo profile.</p><p>The profile is not secure authentication and is not connected to Firebase. When configured, the model shown on screen assists intent, context, policy explanation, resolution preparation, and escalation. Identity and action safeguards remain deterministic. Never enter real passenger data.</p><button class="submit-button dialog-ok" id="dialog-ok">Got it <b>✓</b></button></dialog>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>

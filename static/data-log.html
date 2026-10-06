@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#091522" />
+    <title>Airline Care | Saved Demo Data</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="/" aria-label="Airline Care home">
+          <span class="brand-mark">a</span>
+          <span class="brand-name">airline<span>care</span></span>
+        </a>
+        <div class="workspace-label">WORKSPACE</div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a class="nav-item" href="/"><span class="nav-icon">▦</span> Resolution desk</a>
+          <a class="nav-item" href="/#cases"><span class="nav-icon">◷</span> Track a case</a>
+          <a class="nav-item active" href="/data-log"><span class="nav-icon">▤</span> Saved data</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="live-pill"><span></span> LOCAL CSV HISTORY</div>
+        </div>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <div class="breadcrumbs"><a href="/" class="data-home-link">Workspace</a><b>/</b><strong>Saved demo data</strong></div>
+          <div class="top-actions"><span class="environment"><i></i> TRAINING SIMULATION</span></div>
+        </header>
+        <div class="content data-log-content">
+          <section class="welcome data-welcome">
+            <div>
+              <div class="eyebrow"><span class="sparkle">✦</span> PERSISTENT LOCAL HISTORY</div>
+              <h1>Saved demo data.</h1>
+              <p>CSV snapshots are stored on this computer and remain after a server restart.</p>
+            </div>
+          </section>
+          <section class="stat-grid data-summary" aria-label="Saved data totals">
+            <article class="stat-card"><div class="stat-top"><span>GENERATED FLIGHTS</span><span class="stat-icon blue">✈</span></div><strong id="flight-total">—</strong><p>Privacy-filtered demo itinerary records</p></article>
+            <article class="stat-card"><div class="stat-top"><span>CASE STATUS UPDATES</span><span class="stat-icon violet">◷</span></div><strong id="case-total">—</strong><p>Saved status snapshots, not case lookup IDs</p></article>
+            <article class="stat-card"><div class="stat-top"><span>WORKFLOW / AUDIT EVENTS</span><span class="stat-icon green">⌁</span></div><strong id="action-total">—</strong><p>Agent actions and outcomes, including ticket creation</p></article>
+          </section>
+          <section class="panel data-log-panel">
+            <div class="panel-heading">
+              <div><span class="section-kicker">CSV RECORDS</span><h2 id="log-heading">Generated flights</h2></div>
+              <button class="text-button" id="refresh-data" type="button">Refresh <span>↻</span></button>
+            </div>
+            <div class="data-tabs" role="tablist" aria-label="CSV history type">
+              <button class="data-tab active" id="tab-flights" type="button" role="tab" aria-selected="true" data-kind="flights">Flights</button>
+              <button class="data-tab" id="tab-cases" type="button" role="tab" aria-selected="false" data-kind="cases">Case updates</button>
+              <button class="data-tab" id="tab-actions" type="button" role="tab" aria-selected="false" data-kind="actions">Workflow events</button>
+              <a class="text-button data-download" id="download-csv" href="/api/data-log/flights.csv" download>Download CSV ↓</a>
+            </div>
+            <p class="data-privacy" id="data-privacy">Loading saved CSV history…</p>
+            <div class="data-table-wrap" id="data-table-wrap" aria-live="polite"></div>
+            <p class="data-footnote">History is append-only and stored in the project's local <code>data</code> folder. CSV files are excluded from version control. This dashboard is local-demo visibility, not an authenticated admin console.</p>
+          </section>
+          <footer><span>Airline Care <b>·</b> Service, thoughtfully resolved.</span><span>DEMO ONLY — Saved data contains anonymized demo history.</span></footer>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="/static/data-log.js" defer></script>
+  </body>
+</html>
